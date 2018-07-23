@@ -1,4 +1,4 @@
-GuiFont Melnoh13
+GuiFont Menlo:h13
 colorscheme slate
 tnoremap <Esc> <C-\><C-n>
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
