@@ -1,6 +1,8 @@
 set tabstop=4
 set number
 set foldmethod=indent
+set autoread
+set relativenumber
 GuiFont Menlo:h13
 colorscheme slate
 tnoremap <Esc> <C-\><C-n>
