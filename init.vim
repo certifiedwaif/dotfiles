@@ -4,7 +4,21 @@ set foldmethod=indent
 set autoread
 set relativenumber
 set iskeyword-=_
-GuiFont Menlo:h13
+set cursorline
+set nocompatible
+set showmatch
+set ignorecase
+set mouse=v
+set hlsearch
+set softtabstop=4
+set expandtab
+set shiftwidth=4
+set autoindent
+set wildmode=longest,list
+set cc=80
+if has("gui_running")
+    GuiFont Menlo:h13
+endif
 colorscheme slate
 tnoremap <Esc> <C-\><C-n>
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
@@ -20,3 +34,26 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin('~/.config/nvim/bundle')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'airblade/vim-gitgutter'
+" All of your Plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on  " allows auto-indenting depending on file type
+
+" Syntastic settings
+" set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
