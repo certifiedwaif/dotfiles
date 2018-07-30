@@ -44,6 +44,9 @@ call vundle#begin('~/.config/nvim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'airblade/vim-gitgutter'
+" Plugin 'python-mode/python-mode'
+Plugin 'tpope/vim-fugitive'
+Plugin 'michaeljsmith/vim-indent-object'
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on  " allows auto-indenting depending on file type
