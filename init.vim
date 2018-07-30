@@ -47,6 +47,7 @@ Plugin 'airblade/vim-gitgutter'
 " Plugin 'python-mode/python-mode'
 Plugin 'tpope/vim-fugitive'
 Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'lervag/vimtex'
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on  " allows auto-indenting depending on file type
@@ -60,3 +61,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" vimtex settings
+let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+let g:vimtex_view_general_options = '-r @line @pdf @tex'
+let g:vimtex_view_general_options_latexmk = '-r'
