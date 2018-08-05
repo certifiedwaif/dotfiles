@@ -16,10 +16,11 @@ set shiftwidth=4
 set autoindent
 set wildmode=longest,list
 set cc=80
+set clipboard+=unnamedplus " Make all yanks go to the system clipboard
 if has("gui_running")
     GuiFont Menlo:h13
 endif
-colorscheme slate
+colorscheme darkblue
 tnoremap <Esc> <C-\><C-n>
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 tnoremap <C-h> <C-\><C-N><C-w>h
@@ -42,7 +43,7 @@ call vundle#begin('~/.config/nvim/bundle')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'vim-syntastic/syntastic'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'python-mode/python-mode'
 Plugin 'tpope/vim-fugitive'
@@ -53,10 +54,12 @@ call vundle#end()
 filetype plugin indent on  " allows auto-indenting depending on file type
 
 " Syntastic settings
-" set statusline+=%#warningmsg#
+set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" Add git status using Fugitive
+set statusline+=%{FugitiveStatusline()}
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
