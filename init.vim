@@ -7,7 +7,7 @@ set cursorline
 set nocompatible
 set showmatch
 set ignorecase
-set mouse=v
+set mouse=a
 set hlsearch
 set softtabstop=4
 set expandtab
@@ -19,7 +19,7 @@ set clipboard+=unnamedplus " Make all yanks go to the system clipboard
 if has("gui_running")
     GuiFont Menlo:h13
 endif
-colorscheme darkblue
+colorscheme blue
 tnoremap <Esc> <C-\><C-n>
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 tnoremap <C-h> <C-\><C-N><C-w>h
@@ -62,7 +62,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['flake8', 'mypy']
 
 " Add git status using Fugitive
 set statusline+=%{FugitiveStatusline()}
