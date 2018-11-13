@@ -49,6 +49,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'TheZoq2/neovim-auto-autoread'
 Plugin 'zah/nim.vim'
+Plugin 'lervag/vimtex'
+Plugin 'jalvesaq/Nvim-R'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on  " allows auto-indenting depending on file type
