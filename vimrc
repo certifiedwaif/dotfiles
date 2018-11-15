@@ -17,6 +17,8 @@ Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 
