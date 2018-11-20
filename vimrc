@@ -32,6 +32,15 @@ highlight Normal ctermbg=black
 " This makes copy and paste work
 set mouse=a
 
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
+
 "Colourful colours
 syntax on
 set nostartofline
@@ -64,10 +73,13 @@ set nosmarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+
+"Base code folding on the indent level, for Python
+set foldmethod=indent
 "Set ruler at 80 columns
 set cc=80
 "Make all yanks go to the system clipboard
-set clipboard+=unnamedplus
+"set clipboard+=unnamedplus
 
 "Show special characters for whitespaces
 set list
