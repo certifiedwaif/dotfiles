@@ -28,18 +28,9 @@ filetype plugin indent on
 
 highlight Normal ctermbg=black
 
-" Do let the mouse move the cursor
+" Don't let the mouse move the cursor
 " This makes copy and paste work
-set mouse=a
-
-" yank to clipboard
-if has("clipboard")
-  set clipboard=unnamed " copy to the system clipboard
-
-  if has("unnamedplus") " X11 support
-    set clipboard+=unnamedplus
-  endif
-endif
+set mouse=c
 
 "Colourful colours
 syntax on
@@ -109,6 +100,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 "Noshowmode shows it
 set noshowmode
+
+" Make files update when they change outside vim
+set autoread
 
 "Remap keys to make moving between windows easier
 inoremap <C-h> <C-\><C-N><C-w>h
