@@ -22,6 +22,10 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'python-mode/python-mode'
+Plugin 'zah/nim.vim'
+Plugin 'lervag/vimtex'
+Plugin 'jalvesaq/Nvim-R'
+Plugin 'udalov/kotlin-vim'
 
 call vundle#end()
 
