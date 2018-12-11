@@ -35,7 +35,7 @@ highlight Normal ctermbg=black
 
 " Don't let the mouse move the cursor
 " This makes copy and paste work
-set mouse=c
+set mouse=a
 
 "Colourful colours
 syntax on
