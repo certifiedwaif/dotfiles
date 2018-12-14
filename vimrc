@@ -33,9 +33,9 @@ filetype plugin indent on
 
 highlight Normal ctermbg=black
 
-" Don't let the mouse move the cursor
+" Do let the mouse move the cursor
 " This makes copy and paste work
-set mouse=c
+set mouse=a
 
 "Colourful colours
 syntax on
@@ -76,6 +76,8 @@ set foldmethod=indent
 set cc=80
 "Make all yanks go to the system clipboard
 "set clipboard+=unnamedplus
+"Use syntax to set the folding method
+set foldmethod=syntax
 
 "Show special characters for whitespaces
 set list
@@ -129,7 +131,15 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" Syntastic python
 let g:syntastic_python_checkers = ['flake8', 'mypy']
+
+" Syntastic C++
+let g:syntastic_cpp_include_dirs= ['/Library/Frameworks/R.framework/Resources/include','/Library/Frameworks/R.framework/Versions/3.5/Resources/library/Rcpp/include','/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include','/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppGSL/include','/Library/Frameworks/R.framework/Versions/3.5/Resources/library/BH/include','/Library/Frameworks/R.framework/Versions/3.5/Resources/library/appell/include']
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
 
 " Add git status using Fugitive
 set statusline+=%{FugitiveStatusline()}

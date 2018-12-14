@@ -42,15 +42,15 @@ call vundle#begin('~/.config/nvim/bundle')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'airblade/vim-gitgutter'
-" Plugin 'python-mode/python-mode'
-Plugin 'tpope/vim-fugitive'
-Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'TheZoq2/neovim-auto-autoread'
-Plugin 'zah/nim.vim'
-Plugin 'lervag/vimtex'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'jalvesaq/Nvim-R'
+Plugin 'lervag/vimtex'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'zah/nim.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
