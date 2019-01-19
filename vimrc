@@ -49,7 +49,7 @@ set hidden
 set showcmd
 "Relative line numbers
 set relativenumber
-"Absolutely line number
+"Absolute line number
 set number
 "Show position
 set ruler
