@@ -12,7 +12,6 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'dart-lang/dart-vim-plugin'
-Plugin 'jalvesaq/Nvim-R'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'lervag/vimtex'
@@ -49,7 +48,7 @@ set hidden
 set showcmd
 "Relative line numbers
 set relativenumber
-"Absolute line number
+"Absolutely line number
 set number
 "Show position
 set ruler
