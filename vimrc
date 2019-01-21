@@ -7,25 +7,27 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/seoul256.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'ConradIrwin/vim-bracketed-paste'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'junegunn/seoul256.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'python-mode/python-mode'
-Plugin 'zah/nim.vim'
 Plugin 'lervag/vimtex'
-Plugin 'jalvesaq/Nvim-R'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'python-mode/python-mode'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
 Plugin 'udalov/kotlin-vim'
+Plugin 'vim-scripts/Vim-R-plugin'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'zah/nim.vim'
 
 call vundle#end()
 
@@ -46,6 +48,8 @@ set hidden
 set showcmd
 "Relative line numbers
 set relativenumber
+"Absolutely line number
+set number
 "Show position
 set ruler
 "Start scroling 3 lines before bottom
