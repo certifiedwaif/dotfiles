@@ -78,6 +78,7 @@ set cc=80
 "set clipboard+=unnamedplus
 "Use syntax to set the folding method
 set foldmethod=syntax
+let r_syntax_folding = 1
 
 "Show special characters for whitespaces
 set list
