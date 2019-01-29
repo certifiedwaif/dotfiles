@@ -148,3 +148,6 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 " Add git status using Fugitive
 set statusline+=%{FugitiveStatusline()}
+
+" Stop Vim-R mode from inserting <- when _ is pressed. That's _SO_ annoying!
+let vimrplugin_assign = 0
