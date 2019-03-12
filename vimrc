@@ -7,16 +7,18 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
-Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'lervag/vimtex'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'python-mode/python-mode'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -26,7 +28,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'udalov/kotlin-vim'
 Plugin 'vim-scripts/Vim-R-plugin'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'zah/nim.vim'
 
 call vundle#end()
@@ -81,7 +82,6 @@ set cc=80
 "Make all yanks go to the system clipboard
 "set clipboard+=unnamedplus
 "Use syntax to set the folding method
-set foldmethod=syntax
 let r_syntax_folding = 1
 
 "Show special characters for whitespaces
