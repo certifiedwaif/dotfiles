@@ -147,6 +147,8 @@ let g:syntastic_cpp_include_dirs= ['/Library/Frameworks/R.framework/Resources/in
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
+" Syntastic YAML
+let g:syntastic_yaml_checkers = ['yamllint']
 
 " Add git status using Fugitive
 set statusline+=%{FugitiveStatusline()}
