@@ -1,6 +1,5 @@
 "vi can die in a fire
 set nocompatible
-filetype off
 
 "Install https://github.com/VundleVim/Vundle.vim
 "Run :PluginInstall afterwards
@@ -8,6 +7,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'ElmCast/elm-vim'
+Plugin 'FrigoEU/psc-ide-vim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
@@ -17,11 +18,13 @@ Plugin 'gabrielelana/vim-markdown'
 Plugin 'godlygeek/tabular'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'lervag/vimtex'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'mileszs/ack.vim'
 Plugin 'mrk21/yaml-vim'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'purescript-contrib/purescript-vim'
 Plugin 'python-mode/python-mode'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -35,7 +38,10 @@ Plugin 'zah/nim.vim'
 
 call vundle#end()
 
+syntax on
 filetype plugin indent on
+filetype on
+set omnifunc=syntaxcomplete#Complete
 
 highlight Normal ctermbg=black
 
@@ -44,7 +50,6 @@ highlight Normal ctermbg=black
 set mouse=a
 
 "Colourful colours
-syntax on
 set nostartofline
 "Allow multiple buffers to be open
 set hidden
@@ -120,14 +125,14 @@ set noshowmode
 set autoread
 
 "Remap keys to make moving between windows easier
-inoremap <C-h> <C-\><C-N><C-w>h
-inoremap <C-j> <C-\><C-N><C-w>j
-inoremap <C-k> <C-\><C-N><C-w>k
-inoremap <C-l> <C-\><C-N><C-w>l
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+"inoremap <C-h> <C-\><C-N><C-w>h
+"inoremap <C-j> <C-\><C-N><C-w>j
+"inoremap <C-k> <C-\><C-N><C-w>k
+"inoremap <C-l> <C-\><C-N><C-w>l
+"nnoremap <C-h> <C-w>h
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+"nnoremap <C-l> <C-w>l
 
 " Syntastic settings
 set statusline+=%f
@@ -156,3 +161,6 @@ set statusline+=%{FugitiveStatusline()}
 
 " Stop Vim-R mode from inserting <- when _ is pressed. That's _SO_ annoying!
 let vimrplugin_assign = 0
+
+" Add dictionary completion
+set dictionary+=/usr/share/dict/words
