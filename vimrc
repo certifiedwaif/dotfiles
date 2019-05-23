@@ -46,8 +46,9 @@ set omnifunc=syntaxcomplete#Complete
 highlight Normal ctermbg=black
 
 " Do let the mouse move the cursor
+"set mouse=c
 " This makes copy and paste work
-set mouse=a
+set mouse=c
 
 "Colourful colours
 set nostartofline
@@ -76,7 +77,7 @@ set autoindent
 "But re-indent with the same thing
 set copyindent
 set preserveindent
-set noexpandtab
+set expandtab
 "STOP IT
 set nosmarttab
 set tabstop=4
