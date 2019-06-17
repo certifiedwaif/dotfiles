@@ -13,6 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
+Plugin 'chr4/nginx.vim'
 Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'godlygeek/tabular'
@@ -28,9 +29,11 @@ Plugin 'purescript-contrib/purescript-vim'
 Plugin 'python-mode/python-mode'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'udalov/kotlin-vim'
 Plugin 'vim-scripts/Vim-R-plugin'
 Plugin 'vim-syntastic/syntastic'
@@ -40,15 +43,14 @@ call vundle#end()
 
 syntax on
 filetype plugin indent on
-filetype on
 set omnifunc=syntaxcomplete#Complete
 
 highlight Normal ctermbg=black
 
 " Do let the mouse move the cursor
-"set mouse=c
+set mouse=a
 " This makes copy and paste work
-set mouse=c
+"set mouse=c
 
 "Colourful colours
 set nostartofline
@@ -85,6 +87,7 @@ set shiftwidth=4
 set softtabstop=4
 
 "Base code folding on the indent level, for Python
+"set foldmethod=syntax
 set foldmethod=indent
 "Set ruler at 80 columns
 set cc=80
