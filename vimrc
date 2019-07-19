@@ -8,7 +8,7 @@ call vundle#begin()
 
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'ElmCast/elm-vim'
-Plugin 'FrigoEU/psc-ide-vim'
+Plugin 'Shougo/deoplete.nvim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
@@ -17,16 +17,17 @@ Plugin 'chr4/nginx.vim'
 Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'godlygeek/tabular'
+Plugin 'hdima/python-syntax'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'lervag/vimtex'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'mileszs/ack.vim'
-Plugin 'mrk21/yaml-vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'purescript-contrib/purescript-vim'
-Plugin 'python-mode/python-mode'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-abolish'
@@ -36,7 +37,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'udalov/kotlin-vim'
 Plugin 'vim-scripts/Vim-R-plugin'
-Plugin 'vim-syntastic/syntastic'
+Plugin 'vmchale/dhall-vim'
+Plugin 'w0rp/ale'
 Plugin 'zah/nim.vim'
 
 call vundle#end()
@@ -80,17 +82,18 @@ set autoindent
 set copyindent
 set preserveindent
 set expandtab
+
 "STOP IT
 set nosmarttab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 "Base code folding on the indent level, for Python
 "set foldmethod=syntax
 set foldmethod=indent
-"Set ruler at 80 columns
-set cc=80
+"Set ruler at 78 columns
+set cc=78
 "Make all yanks go to the system clipboard
 "set clipboard+=unnamedplus
 "Use syntax to set the folding method
@@ -138,27 +141,9 @@ set autoread
 "nnoremap <C-k> <C-w>k
 "nnoremap <C-l> <C-w>l
 
-" Syntastic settings
 set statusline+=%f
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" Syntastic python
-let g:syntastic_python_checkers = ['flake8', 'mypy']
-
-" Syntastic C++
-let g:syntastic_cpp_include_dirs= ['/Library/Frameworks/R.framework/Resources/include','/Library/Frameworks/R.framework/Versions/3.5/Resources/library/Rcpp/include','/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include','/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppGSL/include','/Library/Frameworks/R.framework/Versions/3.5/Resources/library/BH/include','/Library/Frameworks/R.framework/Versions/3.5/Resources/library/appell/include']
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-
-" Syntastic YAML
-let g:syntastic_yaml_checkers = ['yamllint']
 
 " Add git status using Fugitive
 set statusline+=%{FugitiveStatusline()}
@@ -168,3 +153,19 @@ let vimrplugin_assign = 0
 
 " Add dictionary completion
 set dictionary+=/usr/share/dict/words
+
+" ale settings
+let g:ale_purescript_ls_config = {
+		                             \  'purescript': {
+		                             \    'addNpmPath': v:true,
+		                             \    'buildCommand': 'pulp build --main Main --include src --to dist/example.js'
+		                             \  }
+		                             \}
+let g:ale_set_balloons = 1
+let g:ale_completion_enabled = 1
+"let g:ale_cursor_detail = 1
+let g:ale_lint_on_save = 1
+let g:ale_keep_list_window_open = 1
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
