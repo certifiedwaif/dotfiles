@@ -19,7 +19,7 @@ Plugin 'gabrielelana/vim-markdown'
 Plugin 'godlygeek/tabular'
 Plugin 'hdima/python-syntax'
 Plugin 'junegunn/seoul256.vim'
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'lervag/vimtex'
 Plugin 'michaeljsmith/vim-indent-object'
@@ -165,7 +165,7 @@ let g:ale_set_balloons = 1
 let g:ale_completion_enabled = 1
 "let g:ale_cursor_detail = 1
 let g:ale_lint_on_save = 1
-let g:ale_keep_list_window_open = 1
+let g:ale_open_list = 1
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
