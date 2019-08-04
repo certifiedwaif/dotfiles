@@ -6,6 +6,7 @@ set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+"Plugin 'kien/ctrlp.vim'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'ElmCast/elm-vim'
 Plugin 'Shougo/deoplete.nvim'
@@ -18,8 +19,8 @@ Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'godlygeek/tabular'
 Plugin 'hdima/python-syntax'
+Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/seoul256.vim'
-"Plugin 'kien/ctrlp.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'lervag/vimtex'
 Plugin 'michaeljsmith/vim-indent-object'
@@ -28,11 +29,12 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'purescript-contrib/purescript-vim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'udalov/kotlin-vim'
@@ -51,8 +53,6 @@ highlight Normal ctermbg=black
 
 " Do let the mouse move the cursor
 set mouse=a
-" This makes copy and paste work
-"set mouse=c
 
 "Colourful colours
 set nostartofline
@@ -67,9 +67,9 @@ set number
 "Show position
 set ruler
 "Start scroling 3 lines before bottom
-set scrolloff=3
+"set scrolloff=3
 "And 6char before edge of screen
-set sidescrolloff=6
+"set sidescrolloff=6
 "Highlight all search matches
 set hlsearch
 set smartcase
@@ -113,7 +113,8 @@ let g:indent_guides_auto_color = 0
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 1
 let g:idnent_guides_guide_size = 4
-"Zebra stripes for every 4 space tab
+
+"Zebra stripes for every 2 space tab
 hi IdentGuidesOdd  guibg=red   ctermbg=235
 hi IdentGuidesEven guibg=green ctermbg=237
 
@@ -169,3 +170,9 @@ let g:ale_open_list = 1
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+
+" fzf 
+set rtp+=/usr/local/opt/fzf
+
+" vim-rhubarb
+let g:github_enterprise_urls = ['https://github.source.internal.cba', 'https://github.ai.cba']
