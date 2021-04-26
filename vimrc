@@ -6,6 +6,7 @@ set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+"Plugin 'alx741/vim-hindent'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'ElmCast/elm-vim'
 Plugin 'OrangeT/vim-csharp'
@@ -14,7 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'aiya000/vim-ghcid-quickfix'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'alx741/vim-hindent'
 Plugin 'bling/vim-airline'
 Plugin 'chr4/nginx.vim'
 Plugin 'dart-lang/dart-vim-plugin'
@@ -49,6 +49,9 @@ Plugin 'vim-scripts/Vim-R-plugin'
 Plugin 'vmchale/dhall-vim'
 Plugin 'w0rp/ale'
 Plugin 'zah/nim.vim'
+Plugin 'spolu/dwm.vim'
+Plugin 'kassio/neoterm'
+Plugin 'luochen1990/rainbow'
 
 call vundle#end()
 
@@ -163,20 +166,20 @@ let vimrplugin_assign = 0
 set dictionary+=/usr/share/dict/words
 
 " ale settings
-let g:ale_purescript_ls_config = {
-		                             \  'purescript': {
-		                             \    'addNpmPath': v:true,
-		                             \    'buildCommand': 'pulp build --main Main --include src --to dist/example.js'
-		                             \  }
-		                             \}
-let g:ale_set_balloons = 1
-let g:ale_completion_enabled = 1
-"let g:ale_cursor_detail = 1
-let g:ale_lint_on_save = 1
-let g:ale_open_list = 1
+"let g:ale_purescript_ls_config = {
+"		                             \  'purescript': {
+"		                             \    'addNpmPath': v:true,
+"		                             \    'buildCommand': 'pulp build --main Main --include src --to dist/example.js'
+"		                             \  }
+"		                             \}
+"let g:ale_set_balloons = 1
+"let g:ale_completion_enabled = 1
+""let g:ale_cursor_detail = 1
+"let g:ale_lint_on_save = 1
+"let g:ale_open_list = 1
 
 " Use deoplete.
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 
 " fzf 
 set rtp+=/usr/local/opt/fzf
@@ -200,7 +203,7 @@ nmap <Leader>M :Maps<CR>
 nmap <Leader>s :Filetypes<CR>
 
 " vim-rhubarb
-let g:github_enterprise_urls = ['https://github.source.internal.cba', 'https://github.ai.cba']
+let g:github_enterprise_urls = ['https://github.source.internal.cba', 'https://github.ai.cba', ' https://vcs.cnsga.aws.prod.au.internal.cba']
 
 " haskell-vim
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -210,3 +213,19 @@ let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
 let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
+" Neoterm config ====
+let g:neoterm_repl_python='python3'
+let g:neoterm_bracketed_paste=1
+let g:neoterm_autoscroll=1
+let g:neoterm_default_mod='vertical rightbelow'
+let g:neoterm_autoinsert=1
+nnoremap <LocalLeader>t :Tnew<cr>
+nnoremap <LocalLeader>l :TREPLSendLine<cr>
+" nnoremap <LocalLeader>l <Plug>(neoterm-repl-send-line)
+vnoremap <LocalLeader>l :TREPLSendLine<cr>gv
+
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-j> <C-\><C-n><C-w>l
+tnoremap <C-k> <C-\><C-n><C-w>h
+" ===
