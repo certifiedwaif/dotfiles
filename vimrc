@@ -6,37 +6,42 @@ set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-"Plugin 'alx741/vim-hindent'
+" Plugin 'vim-scripts/Vim-R-plugin'
+" Plugin 'w0rp/ale'
 Plugin 'ConradIrwin/vim-bracketed-paste'
-Plugin 'ElmCast/elm-vim'
-Plugin 'OrangeT/vim-csharp'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'aiya000/vim-ghcid-quickfix'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'benmills/vimux'
 Plugin 'bling/vim-airline'
 Plugin 'chr4/nginx.vim'
-Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'eigenfoo/stan-vim'
+Plugin 'fenetikm/falcon'
 Plugin 'godlygeek/tabular'
+Plugin 'gu-fan/riv.vim'
 Plugin 'hdima/python-syntax'
+Plugin 'jeetsukumaran/vim-pythonsense'
+Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/seoul256.vim'
 Plugin 'jvirtanen/vim-hcl'
+Plugin 'kassio/neoterm'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'lervag/vimtex'
+Plugin 'luochen1990/rainbow'
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'mileszs/ack.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'memgraph/cypher.vim'
 Plugin 'neomake/neomake'
 Plugin 'neovimhaskell/haskell-vim'
-Plugin 'parsonsmatt/intero-neovim'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'purescript-contrib/purescript-vim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'roxma/vim-tmux-clipboard'
 Plugin 'scrooloose/nerdtree'
+Plugin 'spolu/dwm.vim'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
@@ -44,16 +49,14 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'udalov/kotlin-vim'
-Plugin 'vim-scripts/Vim-R-plugin'
-Plugin 'vmchale/dhall-vim'
-Plugin 'w0rp/ale'
-Plugin 'zah/nim.vim'
-Plugin 'spolu/dwm.vim'
-Plugin 'kassio/neoterm'
-Plugin 'luochen1990/rainbow'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'vim-pandoc/vim-rmarkdown'
+Plugin 'zchee/deoplete-jedi'
 
 call vundle#end()
+
+set rtp+=/usr/local/opt/fzf
 
 syntax on
 filetype plugin indent on
@@ -94,14 +97,29 @@ set infercase
 set expandtab
 
 "STOP IT
-set nosmarttab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set smarttab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
-"Base code folding on the indent level, for Python
-"set foldmethod=syntax
-set foldmethod=indent
+augroup pyconf
+  au! * <buffer>
+  au BufEnter,BufNew,BufRead *.py setlocal shiftwidth=4
+augroup END
+
+augroup markdown
+  au! * <buffer>
+  au BufEnter,BufNew,BufRead *.md setlocal syntax=pandoc-markdown
+augroup END
+
+augroup cypher
+  au! * <buffer>
+  au BufEnter,BufNew,BufRead *.cypher let g:neoterm_bracketed_paste=0
+  au BufEnter,BufNew,BufRead *.cypher setlocal syntax=cypher
+augroup END
+
+set foldmethod=syntax
+" set foldmethod=indent
 "Set ruler at 78 columns
 set cc=78
 "Make all yanks go to the system clipboard
@@ -116,13 +134,14 @@ set list
 set listchars=tab:→\ ,eol:¬
 "let g:seoul256_background = 235
 "Seoul is the best colour, xterm configuration optional but nice
-colorscheme seoul256
+colorscheme falcon
+set termguicolors
 "Let vim and seoul know the background colour
 set background=dark
 let g:indent_guides_auto_color = 0
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 1
-let g:idnent_guides_guide_size = 4
+let g:indent_guides_guide_size = 2
 
 "Zebra stripes for every 2 space tab
 hi IdentGuidesOdd  guibg=red   ctermbg=235
@@ -137,6 +156,8 @@ let g:airline#extensions#tabline#enabled = 1
 "Requires HACK font (Hack has powerline added to it)
 let g:airline_powerline_fonts = 1
 "Noshowmode shows it
+let g:falcon_airline = 1
+let g:airline_theme = 'falcon'
 set noshowmode
 
 " Make files update when they change outside vim
@@ -194,7 +215,7 @@ nmap <Leader>T :Tags<CR>
 nmap <Leader>l :BLines<CR>
 nmap <Leader>L :Lines<CR>
 nmap <Leader>' :Marks<CR>
-nmap <Leader>a :Ag<Space>
+nmap <Leader>r :Rg<Space>
 nmap <Leader>H :Helptags!<CR>
 nmap <Leader>C :Commands<CR>
 nmap <Leader>: :History:<CR>
@@ -204,16 +225,6 @@ nmap <Leader>s :Filetypes<CR>
 
 " vim-rhubarb
 let g:github_enterprise_urls = ['https://github.source.internal.cba', 'https://github.ai.cba', ' https://vcs.cnsga.aws.prod.au.internal.cba']
-
-" haskell-vim
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
-
 " Neoterm config ====
 let g:neoterm_repl_python='python3'
 let g:neoterm_bracketed_paste=1
@@ -225,7 +236,18 @@ nnoremap <LocalLeader>l :TREPLSendLine<cr>
 " nnoremap <LocalLeader>l <Plug>(neoterm-repl-send-line)
 vnoremap <LocalLeader>l :TREPLSendLine<cr>gv
 
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-j> <C-\><C-n><C-w>l
-tnoremap <C-k> <C-\><C-n><C-w>h
+" tnoremap <Esc> <C-\><C-n>
+" tnoremap <C-j> <C-\><C-n><C-w>l
+" tnoremap <C-k> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-w>l
+tnoremap <C-k> <C-w>h
 " ===
+
+" Activate rainbow brackets
+let g:rainbow_active = 1
+
+noremap <Space> <Nop>
+map <Space> <Leader>
+
+let g:pymode_lint_ignore = 'E111,W0311'
+let g:vim_markdown_folding_style_pythonic = 1
