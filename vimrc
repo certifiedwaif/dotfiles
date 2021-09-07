@@ -118,6 +118,17 @@ augroup cypher
   au BufEnter,BufNew,BufRead *.cypher setlocal syntax=cypher
 augroup END
 
+augroup R
+  au! * <buffer>
+  au BufEnter,BufNew,BufRead *.R let g:neoterm_bracketed_paste=0
+  au BufEnter,BufNew,BufRead *.R setlocal syntax=R
+augroup END
+
+augroup latex
+  au! * <buffer>
+  au BufEnter,BufNew,BufRead *.tex setlocal syntax=tex
+augroup END
+
 set foldmethod=syntax
 " set foldmethod=indent
 "Set ruler at 78 columns
