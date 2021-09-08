@@ -141,9 +141,6 @@ complete -o nospace -C /usr/local/bin/vault vault
 export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
 export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
 
-export SPLUNK_USERNAME=greenama
-export SPLUNK_PASSWORD=ich00Db6mDocbKk-zp-IRm/H7P5wFP2XYZ
-
 #alias targus-on='networksetup -setnetworkserviceenabled "Targus USB3.0 DV2K Dock w Power" on'
 #alias targus-off='networksetup -setnetworkserviceenabled "Targus USB3.0 DV2K Dock w Power" off'
 #Targus USB3 DV4K DOCK w PD100W
