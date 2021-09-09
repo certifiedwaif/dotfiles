@@ -1,0 +1,61 @@
+# Global important settings
+set -g default-terminal "xterm"
+set-option -g default-shell $SHELL
+set-option -g status-position bottom
+set-window-option -g xterm-keys on
+bind-key -n S-Up set-option -g status
+bind-key -n S-Down set-option -g status
+bind-key -n S-Right next-window
+bind-key -n S-Left previous-window
+# Status options
+set-option -g status-style fg=white,bg=default,bright
+# set-option -g status-fg white
+# set-option -g status-bg default
+# set-option -g status-attr default
+# Message options
+set-option -g message-style fg=white,bg=black,default
+# set-option -g message-fg white
+# set-option -g message-bg black
+# set-option -g message-attr bright
+# Window + Status options
+set -g allow-rename off
+set-window-option -g window-status-style fg="#999999",bg=default
+set-window-option -g window-status-current-style fg=red,bg=default
+# set-window-option -g window-status-fg "#666666"
+# set-window-option -g window-status-bg default
+# set-window-option -g window-status-current-fg red
+# set-window-option -g window-status-current-bg default
+set -sg escape-time 0
+set -g status-justify left
+set -g status-left " "
+set-window-option -g window-status-format         ' #{window_name} '
+set-window-option -g window-status-current-format ' #{window_name} '
+set-window-option -g window-status-separator ' | '
+#set -g status-right "  "
+# set-window-option -g window-status-attr default
+# set-window-option -g window-status-current-attr default
+# Probably should add -o ConnectTimeout to the ssh commands
+# set -g status-right "#[fg=green,bg=default]#(~/scripts/am_i_connected_to_work.sh && echo ' Connected')#[fg=red,bg=default]#(~/scripts/am_i_connected_to_work.sh || echo ' Not Connected')#[fg=blue]#(~/scripts/is_model_pass_running.sh)  #[fg=blue]#(~/scripts/spark_shells_running.sh)"
+# setw -g window-status-format         ' #(echo "#{pane_title}" "#{pane_current_command}") '
+# setw -g window-status-current-format ' #(echo "#{pane_title}" "#{pane_current_command}") '
+# All other options
+# remap prefix from 'C-b' to 'C-v'
+# unbind C-b
+# set-option -g prefix C-v
+bind-key v send-prefix
+setw -g mode-keys vi
+unbind [
+unbind C-v
+bind C-v copy-mode
+unbind p
+bind p paste-buffer
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X copy-selection
+if "test ! -d ~/.tmux/plugins/tpm" \
+   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm'"
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g focus-events on
+run '~/.tmux/plugins/tpm/tpm'
+
