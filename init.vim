@@ -308,8 +308,8 @@ vnoremap <LocalLeader>l :TREPLSendLine<cr>gv
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-j> <C-\><C-n><C-w>l
 tnoremap <C-k> <C-\><C-n><C-w>h
-tnoremap <C-j> <C-w>l
-tnoremap <C-k> <C-w>h
+" tnoremap <C-j> <C-w>l
+" tnoremap <C-k> <C-w>h
 " ===
 
 " Activate rainbow brackets
