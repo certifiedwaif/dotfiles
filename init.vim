@@ -302,12 +302,12 @@ let g:neoterm_default_mod='vertical rightbelow'
 let g:neoterm_autoinsert=1
 nnoremap <LocalLeader>t :Tnew<cr>
 nnoremap <LocalLeader>l :TREPLSendLine<cr>
-" nnoremap <LocalLeader>l <Plug>(neoterm-repl-send-line)
+nnoremap <LocalLeader>l <Plug>(neoterm-repl-send-line)
 vnoremap <LocalLeader>l :TREPLSendLine<cr>gv
 
-" tnoremap <Esc> <C-\><C-n>
-" tnoremap <C-j> <C-\><C-n><C-w>l
-" tnoremap <C-k> <C-\><C-n><C-w>h
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-j> <C-\><C-n><C-w>l
+tnoremap <C-k> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-w>l
 tnoremap <C-k> <C-w>h
 " ===
